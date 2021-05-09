@@ -1,0 +1,224 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8" />
+    <title>Prediction Engine</title>
+
+    <!-- Bootstrap CSS -->
+
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link
+      rel="stylesheet"
+      href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css"
+    />
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+    <style>
+       #myVideo {
+        position: fixed;
+        right: 0;
+        bottom: 0;
+        min-width: 100%;
+        min-height: 100%;
+      }
+      .main {
+        position: fixed;
+        top: 120px;
+        left: 410px;
+        width: 700px;
+
+        align-items: center;
+        border-radius: 5%;
+      }
+      div {
+        padding: 15px;
+      }
+      input[type="submit"] {
+        background-color: White;
+        color: white;
+        cursor: pointer;
+        padding: 16px 32px;
+      }
+      h1 {
+        font-size: 40px;
+        color: white;
+      }
+      .h2 {
+        font-size: 30px;
+        color: White;
+        position: fixed;
+        top: 20px;
+        left: 410px;
+        width: 700px;
+
+        align-items: center;
+        border-radius: 5%;
+      }
+      .p{
+
+        color:White;
+        font-size: 20px;
+      }
+      .btn btn-primary{
+        color:Black;
+
+      }
+      .button {
+  padding: 12px 22px;
+  font-size: 24px;
+  text-align: center;
+  cursor: pointer;
+  outline: none;
+  color: #fff;
+  background-color: #000000;
+  border: none;
+  border-radius: 12px;
+  box-shadow: 0 9px #999;
+}
+
+.button:hover {background-color: #3e8e41}
+
+.button:active {
+  background-color: #3e8e41;
+  box-shadow: 0 5px #666;
+  transform: translateY(4px);
+    </style>
+  </head>
+  <body style="text-align: center">
+    <!-- The video -->
+    {% comment %}
+    <video autoplay muted loop id="myVideo">
+      <source src="static/Sea - 4006.mp4" type="video/mp4" />
+    </video>
+    <h1 class="content">HELLO</h1>
+    {% endcomment %}
+        <!-- The video -->
+    <video autoplay muted loop id="myVideo">
+      <source src="static/islands.mp4" type="video/mp4" />
+    </video>
+
+   
+    </div>
+    <div class="main">
+      <h1>Please Enter the following values:</h1>
+      <form action="result">
+        <div class="row">
+          <div class="col-sm-4" >
+            <p class="p">Bedrooms</p>
+            <select
+              name="n1"
+              class="form-control"
+              id="exampleFormControlSelect1"
+            >
+              <option>0</option>
+              <option>1</option>
+              <option>2</option>
+              <option>3</option>
+              <option>4</option>
+              <option>5</option>
+              <option>6</option>
+              <option>7</option>
+              <option>8</option>
+            </select>
+          </div>
+          <div class="col-sm-4" >
+            <p  class="p">Bathrooms</p>
+            <select
+              name="n2"
+              class="form-control"
+              id="exampleFormControlSelect1"
+            >
+              <option>0</option>
+              <option>1</option>
+              <option>2</option>
+              <option>3</option>
+              <option>4</option>
+              <option>5</option>
+            </select>
+          </div>
+          <div class="col-sm-4" >
+            <p  class="p">floors</p>
+            <select
+              name="n5"
+              class="form-control"
+              id="exampleFormControlSelect1"
+            >
+              <option>1</option>
+              <option>2</option>
+              <option>3</option>
+              <option>4</option>
+            </select>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-sm-4" >
+            <p  class="p">view</p>
+
+            <select
+              name="n7"
+              class="form-control"
+              id="exampleFormControlSelect1"
+            >
+              <option>0</option>
+              <option>1</option>
+              <option>2</option>
+              <option>3</option>
+              <option>4</option>
+            </select>
+          </div>
+          <div class="col-sm-4">
+            <p  class="p">condition</p>
+            <select
+              name="n8"
+              class="form-control"
+              id="exampleFormControlSelect1"
+            >
+              <option>1</option>
+              <option>2</option>
+              <option>3</option>
+              <option>4</option>
+              <option>5</option>
+            </select>
+          </div>
+
+          <div class="col-sm-4" >
+            <p  class="p">waterfront</p>
+            <select
+              name="n6"
+              class="form-control"
+              id="exampleFormControlSelect1"
+            >
+              <option>0</option>
+              <option>1</option>
+            </select>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-sm-4" >
+            <p  class="p">square feet basement</p>
+            <input type="text" name="n9" />
+          </div>
+          <div class="col-sm-4">
+            <p  class="p">Total square feet Area</p>
+            <input type="text" name="n4" />
+          </div>
+          <div class="col-sm-4">
+            <p  class="p">square feet Living Area</p>
+            <input type="text" name="n3" />
+          </div>
+        </div>
+
+        <div class="row">
+          <button class="button"type="submit" , value="PREDICT">START</button>
+        </div>
+      </form>
+    </div>
+
+    <div class="h2">
+      <h2>{{result2}}</h2>
+    </div>
+  </body>
+</html>
