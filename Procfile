@@ -1,1 +1,1 @@
-web: gunicorn detector.wsgi --log-file -
+web: gunicorn House_Price.wsgi 
